@@ -6,7 +6,7 @@ import Navbar from "@/components/admin-panel/Navbar";
 import Sidebar from "@/components/admin-panel/Sidebar";
 import { useAppSelector } from "@/redux/hooks";
 import { useSession } from "next-auth/react";
-export const revalidate = 3600;
+
 export default function Layout({ children }: { children: React.ReactNode }) {
     const isLoading = useAppSelector((state) => state.loadingReducer);
     const { data: session } = useSession();

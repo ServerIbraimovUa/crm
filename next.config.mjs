@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "www.att.com",
+                hostname: "utfs.io",
             },
         ],
     },

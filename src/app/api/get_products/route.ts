@@ -1,5 +1,6 @@
 import { connectMongoDb } from "@/libs/MongoConnect";
 import Product from "@/libs/models/Product";
+import axios from "axios";
 import { NextResponse } from "next/server";
 
 export async function GET() {

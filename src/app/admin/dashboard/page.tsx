@@ -24,7 +24,13 @@ function Dashboard() {
     useEffect(() => {
         dispatch(setLoading(true));
         axios
-            .get("/api/get_products")
+            .get("/api/get_products", {
+                headers: {
+                    "Cache-Control": "no-cache",
+                    Pragma: "no-cache",
+                    Expires: "0",
+                },
+            })
             .then((res) => setProducts(res.data))
             .catch((err) => console.log(err))
             .finally(() => dispatch(setLoading(false)));

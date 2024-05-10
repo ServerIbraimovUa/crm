@@ -48,13 +48,11 @@ const ProductForm = () => {
             <UploadButton
                 endpoint="imageUploader"
                 onClientUploadComplete={(res) => {
-                    // Do something with the response
-                    console.log("Files: ", res);
-                    alert("Upload Completed");
+                    setPayload({ ...payload, imgSrc: res[0].url, fileKey: res[0].key });
                 }}
                 onUploadError={(error: Error) => {
                     // Do something with the error.
-                    alert(`ERROR! ${error.message}`);
+                    console.log(`ERROR! ${error.message}`);
                 }}
             />
 

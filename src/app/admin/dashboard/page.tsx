@@ -6,7 +6,7 @@ import { setLoading } from "@/redux/features/loadingSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+axios.defaults.headers["Cache-Control"] = "no-cache";
 export interface IProduct {
     _id: string;
     imgSrc: string;
@@ -24,13 +24,7 @@ function Dashboard() {
     useEffect(() => {
         dispatch(setLoading(true));
         axios
-            .get("/api/get_products", {
-                headers: {
-                    "Cache-Control": "no-cache",
-                    Pragma: "no-cache",
-                    Expires: "0",
-                },
-            })
+            .get("/api/get_products")
             .then((res) => setProducts(res.data))
             .catch((err) => console.log(err))
             .finally(() => dispatch(setLoading(false)));

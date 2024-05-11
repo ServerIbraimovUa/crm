@@ -1,6 +1,7 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 const { NEXTAUTH_SECRET, CLIENT_SECRET, CLIENT_ID } = process.env;
+
 const handler = NextAuth({
     providers: [
         GoogleProvider({
